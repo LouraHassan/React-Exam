@@ -36,10 +36,10 @@ function BooksPage() {
     const searchAction = () => {
         if (search != '') {
             const searchList =[]
-                books.map(book => {
+                books.find(book => {
                 if (book.title.toLowerCase().includes(search.toLowerCase())) {
                     setBooks(searchList) 
-                    console.log(books);
+                    console.log(searchList);
                     
                 }
             })
@@ -53,10 +53,10 @@ function BooksPage() {
 
           <div className='flex flex-col items-center'>
               
-              <div className='flex flex-col w-[90vw]'>
+              <div className='flex flex-col w-[90vw] lg:flex-row lg:justify-between lg:items-center'>
               <p className='font-bold text-2xl'>Books List</p>
                   <div className='flex my-4'>
-                      <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className='input input-bordered w-full' placeholder='Search books' />
+                      <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className='input input-bordered w-full lg:w-[20vw]' placeholder='Search books' />
                       <button onClick={searchAction} className='btn mx-2 btn-accent'>Search</button>
                   </div>
               </div>
